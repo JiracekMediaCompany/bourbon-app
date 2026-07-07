@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { BourbonAppLogo } from './components/BourbonAppLogo';
+import { Scoreboard } from './components/Scoreboard';
 
 export default function Home() {
   const [activePage, setActivePage] = useState('home');
@@ -42,7 +44,7 @@ export default function Home() {
       {/* Left Navigation Sidebar */}
       <div className="w-64 bg-white shadow-lg">
         <div className="p-6 border-b">
-          <h1 className="text-2xl font-bold text-gray-800">Bourbon App</h1>
+          <BourbonAppLogo />
         </div>
         <nav className="p-4">
           {navItems.map((item) => (
@@ -101,7 +103,11 @@ export default function Home() {
         </header>
         <main className="flex-1 p-8">
           <div className="bg-white rounded-lg shadow p-8">
-            <p className="text-gray-600">Content for {renderContent()} goes here</p>
+            {activePage === 'ranking' ? (
+              <Scoreboard />
+            ) : (
+              <p className="text-gray-600">Content for {renderContent()} goes here</p>
+            )}
           </div>
         </main>
       </div>
