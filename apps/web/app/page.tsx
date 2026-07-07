@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { BourbonAppLogo } from './components/BourbonAppLogo';
 import { Scoreboard } from './components/Scoreboard';
+import { Bourbon } from './components/Bourbon';
 
 export default function Home() {
   const [activePage, setActivePage] = useState('home');
@@ -105,6 +106,8 @@ export default function Home() {
           <div className="bg-white rounded-lg shadow p-8">
             {activePage === 'ranking' ? (
               <Scoreboard />
+            ) : activePage === 'bourbon' ? (
+              <Bourbon />
             ) : (
               <p className="text-gray-600">Content for {renderContent()} goes here</p>
             )}
